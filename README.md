@@ -56,3 +56,11 @@ The following tech / frameworks were used:
 
 ## License
 This project is licenses under the <a href="https://github.com/w3shivers/ascii-next-gen/blob/master/LICENSE" target="_blank" title="MIT License">MIT License</a>
+
+<hr>
+
+<div align="center">
+    <sub>
+        README.MD v1.0.0 created by <a href="https://github.com/Yolinda">Yolinda</a>
+    </sub>
+</div>
