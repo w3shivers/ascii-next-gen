@@ -51,8 +51,7 @@ class AsciiArt():
             if (height > width):
                 width = floor(height / image_ratio)
             else:
-                height = floor(width * image_ratio) 
-            print(width, height)
+                height = floor(width * image_ratio)
         return width, height
 
     def __determine_adaptive_size(self, image_width: int, image_height: int) -> tuple:
