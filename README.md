@@ -22,6 +22,6 @@ The following tech / frameworks were used:
 <a href="#">Yolinda</a>
 
 ## License
-A short snippet describing the license (MIT, Apache etc)
+What is the license?
 
 MIT © <a href="#">w3shivers</a>
