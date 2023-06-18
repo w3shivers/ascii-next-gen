@@ -3,20 +3,30 @@
 <div align="center">
     <img src="https://img.shields.io/badge/stability-experimental-orange.svg">
     <a href=""><img src="https://img.shields.io/badge/license-MIT-blue.svg"></a>
-    <a href="https://github.com/w3shivers/ascii-next-gen/graphs/contributors" alt="Contributors"><img src="https://img.shields.io/github/contributors/badges/shields" /></a>
     <img src="https://img.shields.io/badge/version-1.0.0-red">
     <img src="https://img.shields.io/badge/python-v3.6+-blue.svg">
 </div>
 
 <div align="center">
-    <sub>Brought to you with ❤︎ by <a href="https://github.com/w3shivers">w3shivers</a> and [Contributors](Contributors)</sub>
+    <sub>Brought to you with ❤︎ by <a href="https://github.com/w3shivers">w3shivers</a> and <a href="https://github.com/w3shivers/ascii-next-gen/tree/update_readme#contributors">Contributors</a></sub>
+</div>
+<div style="height:10px;"></div>
+<div align="center"><a name="menu"></a>
+  <h4>
+    <a href="https://www.vCloudInfo.com/tag/iot">Project overview</a>
+    <span> | </span>
+    <a href="https://github.com/CCOSTAN/Home-AssistantConfig#devices">Contributors</a>
+    <span> | </span>
+  </h4>
 </div>
 
-# Introduction
+<hr>
+
+# Project Overview
 
 This code set converts basic images into ASCII. It can also create ASCII animations depending on the images converted. 
 
-## Tech / Framework used
+## Tech used
 The following tech / frameworks were used:
 - <a href="https://www.python.org/" target="_blank" title="Python">Python</a>
 
