@@ -3,6 +3,12 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# MacOS
+.DS_Store
+
+# Unit tests
+unit_test*
+
 # C extensions
 *.so
 
