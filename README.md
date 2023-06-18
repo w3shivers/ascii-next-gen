@@ -1,7 +1,11 @@
-# ASCII NextGen
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/w3shivers/ascii-next-gen/blob/master/LICENSE)
+<h1 align="center">w3shivers</h1>
 
-:star: me on Github - it motivates me to continue :smile:
+# ASCII NextGen
+<div align="center">
+    [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/w3shivers/ascii-next-gen/blob/master/LICENSE)
+
+    :star: me on Github - it motivates me to continue :smile:
+</div>
 
 This code set converts basic images into ASCII. It can also create ASCII animations depending on the images converted. 
 
