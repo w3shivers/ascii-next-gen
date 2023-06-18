@@ -1,10 +1,6 @@
 <h1 align="center">w3shivers</h1>
 
-<div align="center">
-    [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/w3shivers/ascii-next-gen/blob/master/LICENSE)
-
-    :star: me on Github - it motivates me to continue :smile:
-</div>
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/w3shivers/ascii-next-gen/blob/master/LICENSE) :star: me on Github - it motivates me to continue :smile:
 
 # ASCII NextGen
 
