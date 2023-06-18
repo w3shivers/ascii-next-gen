@@ -6,16 +6,9 @@ The following tech / frameworks were used:
 <a href="">Phyton</a>
 
 ## Features
-[x] Converts images to ASCII
-[ ] Generates ASCII images to an animation
-[ ] Responsive
-
-- [x] #739
-- [ ] https://github.com/octo-org/octo-repo/issues/740
-- [ ] Add delight to the experience when all tasks are complete :tada:
-
-- [ ] \(Optional) Open a followup issue
-
+- [x] Converts images to ASCII
+- [ ] Generates ASCII images to an animation
+- [ ] Responsive
 
 ## Contribute
 <a href="#">w3shivers</a>
