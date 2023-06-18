@@ -61,6 +61,6 @@ This project is licenses under the <a href="https://github.com/w3shivers/ascii-n
 
 <div align="center">
     <sub>
-        README.MD v1.0.0 created by <a href="https://github.com/Yolinda">Yolinda</a>
+        This readme file was created with ❤︎ by <a href="https://github.com/Yolinda">Yolinda</a>
     </sub>
 </div>
