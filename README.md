@@ -1,4 +1,6 @@
 # ASCII NextGen
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/w3shivers/ascii-next-gen/blob/master/LICENSE)
+
 This code set converts basic images into ASCII. It can also create ASCII animations depending on the images converted. 
 
 ## Tech / Framework used
@@ -10,7 +12,7 @@ The following tech / frameworks were used:
 - [ ] Generates ASCII images to an animation
 - [ ] Responsive
 
-## Contribute
+## Credits
 - <a href="https://github.com/w3shivers" target="_blank" title="w3shivers">w3shivers</a>
 - <a href="https://github.com/Yolinda" target="_blank" title="Yolinda">Yolinda</a>
 
