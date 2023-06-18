@@ -24,4 +24,4 @@ The following tech / frameworks were used:
 ## License
 A short snippet describing the license (MIT, Apache etc)
 
-MIT © w3shivers
+MIT © <a href="#">w3shivers</a>
