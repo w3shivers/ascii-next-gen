@@ -19,7 +19,7 @@ The following tech / frameworks were used:
 
 ## Contribute
 <a href="#">w3shivers</a>
-<a href="#">Yolinda</a>
+<a href="#">Yolinda VDL</a>
 
 ## License
 What is the license?
