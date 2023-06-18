@@ -2,7 +2,8 @@ from PIL import Image
 from webcolors import rgb_to_hex
 from rich import print as print_ascii
 from os import get_terminal_size
-from library.enums import ResizeType as EnumResizeType
+from library.enums import ResizeType, ColumnLineRatio
+from math import floor
 
 class AsciiArt():
     """ The AsciiArt object is only for generating
@@ -10,13 +11,14 @@ class AsciiArt():
     the following customizable options:
      """
     __ascii_characters: str = "`^\",:;Il!i~+_-?][}{1)(|\\/tfjrxnuvczXYUJCLQ0OZmwqpdbkhao*#MW&8%B@$"
+    __column_to_line_ratio = ColumnLineRatio.half.value
     color: bool = True
     """ color: bool (Default True)
      - True = ASCII art will output with color.
      - False = ASCII art will only output characters 
        in CLI standard text color. """
     single_character: str|None = None
-    resize_type: str = EnumResizeType.percentage_size.value
+    resize_type: str = ResizeType.percentage_size.value
     respect_aspect_ratio: bool = True
     line_size: int|None = 100
     column_size: int|None = 100
@@ -29,7 +31,7 @@ class AsciiArt():
         width = 0
         height = 0
         image = Image.open(image_file)
-        if self.resize_type == EnumResizeType.exact_size.value:
+        if self.resize_type == ResizeType.exact_size.value:
             width, height = self.__determine_exact_size(image_width=image.width, image_height=image.height)
         else:
             width, height = self.__determine_adaptive_size(image_width=image.width, image_height=image.height)
@@ -39,15 +41,18 @@ class AsciiArt():
 
     def __determine_exact_size(self, image_width: int, image_height: int) -> tuple:
         width = image_width
-        height = image_height
-        if not self.respect_aspect_ratio:
-            if self.column_size:
-                width = self.column_size
-            if self.line_size:
-                height = self.line_size
-            return (self.column_size, self.line_size)
-        else:
-            height = image_height / 2
+        height = floor(image_height / self.__column_to_line_ratio) # calculate aspect ratio of image.
+        image_ratio = height / width
+        if self.column_size:
+            width = self.column_size
+        if self.line_size:
+            height = self.line_size 
+        if self.respect_aspect_ratio: # If aspect ratio isn't important to user.
+            if (height > width):
+                width = floor(height / image_ratio)
+            else:
+                height = floor(width * image_ratio) 
+            print(width, height)
         return width, height
 
     def __determine_adaptive_size(self, image_width: int, image_height: int) -> tuple:
@@ -55,13 +60,13 @@ class AsciiArt():
         height = image_height / 2
         terminal_size = get_terminal_size()
         image_ratio = image_height / image_width
-        terminal_ratio = ( terminal_size.lines * 2 ) / terminal_size.columns
+        terminal_ratio = ( terminal_size.lines * self.__column_to_line_ratio ) / terminal_size.columns
         if terminal_ratio < image_ratio: # adapt by height
             height = terminal_size.lines
-            width = ( height / image_ratio ) * 2 
+            width = ( height / image_ratio ) * self.__column_to_line_ratio
         else: # adapt by width
             width = terminal_size.columns
-            height = ( width * image_ratio ) / 2
+            height = ( width * image_ratio ) / self.__column_to_line_ratio
         return (int(width), int(height))
 
     def __convert_to_ascii_art(self, image: Image) -> list:
@@ -111,19 +116,3 @@ class AsciiArt():
             print(ascii_art)
         else:
             print_ascii(ascii_art)
-
-if __name__ == '__main__':
-    ascii = AsciiArt()
-    ascii.color = True
-    ascii.single_character = '#'
-    ascii.resize_type = EnumResizeType.exact_size.value
-    ascii.respect_aspect_ratio = False
-    ascii.line_size = 50
-    ascii.column_size = 100
-    ascii.print_image(
-        # ascii.create(image_file='walking_duck_frames/23.jpg')
-        ascii.create(image_file='test_images/cat.jpg')
-    )
-    # ascii.print_image(
-    #     ascii.create(image_file='walking_duck_frames/25.jpg', width=70, height=35)
-    # )

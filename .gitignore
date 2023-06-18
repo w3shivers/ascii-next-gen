@@ -6,6 +6,9 @@ __pycache__/
 # MacOS
 .DS_Store
 
+# Unit tests
+unit_test*
+
 # C extensions
 *.so
 
