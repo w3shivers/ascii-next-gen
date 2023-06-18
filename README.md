@@ -13,36 +13,46 @@
 <div style="height:10px;"></div>
 <div align="center"><a name="menu"></a>
   <h4>
-    <a href="https://www.vCloudInfo.com/tag/iot">Project overview</a>
+    <a href="https://github.com/w3shivers/ascii-next-gen/blob/update_readme/README.md#project-overview">Project overview</a>
     <span> | </span>
-    <a href="https://github.com/CCOSTAN/Home-AssistantConfig#devices">Contributors</a>
+    <a href="https://github.com/w3shivers/ascii-next-gen/blob/update_readme/README.md#tech-used">Contributors</a>
     <span> | </span>
+    <a href="https://github.com/w3shivers/ascii-next-gen/blob/update_readme/README.md#features">Features</a>
+    <span> | </span>
+    <a href="https://github.com/w3shivers/ascii-next-gen/blob/update_readme/README.md#contributors">Contributors</a>
+    <span> | </span>
+    <a href="https://github.com/w3shivers/ascii-next-gen/blob/update_readme/README.md#license">License</a>
   </h4>
 </div>
 
 <hr>
 
-# Project Overview
+## Project Overview
 
 This code set converts basic images into ASCII. It can also create ASCII animations depending on the images converted. 
+
+<hr>
 
 ## Tech used
 The following tech / frameworks were used:
 - <a href="https://www.python.org/" target="_blank" title="Python">Python</a>
+
+<hr>
 
 ## Features
 - [ ] Converts images to ASCII
 - [ ] Generates ASCII images to an animation
 - [ ] Responsive
 
+<hr>
+
 ## Contributors
 [//]: contributor-faces
-<a href="https://github.com/w3shivers"><img src="https://avatars.githubusercontent.com/u/83607204?v=4" title="w3shivers" width="50" height="50"></a>
-<a href="https://github.com/Yolinda"><img src="https://avatars.githubusercontent.com/u/1070989?v=4" title="Yolinda" width="50" height="50"></a>
+<a href="https://github.com/w3shivers"><img src="https://avatars.githubusercontent.com/u/83607204?v=4" title="w3shivers" width="50" height="50"></a> <a href="https://github.com/Yolinda"><img src="https://avatars.githubusercontent.com/u/1070989?v=4" title="Yolinda" width="50" height="50"></a>
+
 [//]: contributor-faces
 
+<hr>
 
 ## License
 This project is licenses under the <a href="https://github.com/w3shivers/ascii-next-gen/blob/master/LICENSE" target="_blank" title="MIT License">MIT License</a>
-
-MIT © <a href="https://github.com/w3shivers" target="_blank" title="w3shivers">w3shivers</a>
