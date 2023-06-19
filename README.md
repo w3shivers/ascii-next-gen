@@ -1,66 +1,85 @@
-<h1 align="center">ASCII NextGen</h1>
+<!-- File Header -->
+<div>
 
-<div align="center">
-    <img src="https://img.shields.io/badge/stability-experimental-orange.svg">
-    <a href=""><img src="https://img.shields.io/badge/license-MIT-blue.svg"></a>
-    <img src="https://img.shields.io/badge/version-1.0.0-red">
-    <img src="https://img.shields.io/badge/python-v3.6+-blue.svg">
+  <div style="font-size:xxx-large; text-align:center;">
+    ASCII NextGen
+  </div>
+
+  <div style="font-size:small; text-align:center; font-style:italic;">
+    Brought to you with ❤︎ by <a href="https://github.com/w3shivers" title="w3shivers">w3shivers</a> and <a href="#contributors" title="Contributors">Contributors</a>
+  </div>
+
 </div>
 
-<div align="center">
-    <sub>Brought to you with ❤︎ by <a href="https://github.com/w3shivers">w3shivers</a> and <a href="https://github.com/w3shivers/ascii-next-gen/tree/update_readme#contributors">Contributors</a></sub>
-</div>
-<div style="height:10px;"></div>
-<div align="center"><a name="menu"></a>
-  <h4>
-    <a href="https://github.com/w3shivers/ascii-next-gen/blob/update_readme/README.md#project-overview">Project overview</a>
-    <span> | </span>
-    <a href="https://github.com/w3shivers/ascii-next-gen/blob/update_readme/README.md#tech-used">Contributors</a>
-    <span> | </span>
-    <a href="https://github.com/w3shivers/ascii-next-gen/blob/update_readme/README.md#features">Features</a>
-    <span> | </span>
-    <a href="https://github.com/w3shivers/ascii-next-gen/blob/update_readme/README.md#contributors">Contributors</a>
-    <span> | </span>
-    <a href="https://github.com/w3shivers/ascii-next-gen/blob/update_readme/README.md#license">License</a>
-  </h4>
+<!-- Project Badges -->
+<div style="text-align:center; margin-top:10px;">
+  <img src="https://img.shields.io/badge/Version-0.9.0-red">
+  <img src="https://img.shields.io/badge/Stability-Experimental-blue">
+  <img src="https://img.shields.io/badge/Language-Python%20v3.11+-yellow">
+  <img src="https://img.shields.io/badge/License-MIT-purple">
 </div>
 
-<hr>
+<hr style="margin:15px 0;">
 
+<!-- Table of Contents -->
+<div style="text-align:center; font-size:1.2em;">
+  <a href="#project-overview" title="Project Overview">Project Overview</a> •
+  <a href="#features" title="Features">Features</a> •
+  <a href="#contributors" title="Contributors">Contributors</a> •
+  <a href="#packages-used" title="Packages Used">Packages Used</a> •
+  <a href="#get-started" title="Get Started">Get Started</a> •
+  <a href="#license" title="License">License</a>
+</div>
+
+<hr style="margin:15px 0;">
+
+<!-- Project Overview -->
 ## Project Overview
+A command-line tool that can be used to convert images into **ASCII Art**. Loaded with various options.
 
-This code set converts basic images into ASCII. It can also create ASCII animations depending on the images converted. 
-
-<hr>
-
-## Tech used
-The following tech / frameworks were used:
-- <a href="https://www.python.org/" target="_blank" title="Python">Python</a>
-
-<hr>
-
+<!-- Features -->
 ## Features
-- [ ] Converts images to ASCII
-- [ ] Generates ASCII images to an animation
-- [ ] Responsive
+- [ ] Convert image(s) to ASCII art.
 
-<hr>
+<!-- Get started -->
+## Get Started
+To get started ``close this repository`` to your local machine. Then, install the required dependencies using `pip`.
 
+```
+pip install -r requirements.txt
+```
+
+Once the dependencies are installed, you can start developing the game creator by editing the files in the src directory.
+
+<!-- Contributors -->
 ## Contributors
+If you would like to contribute to the development of this tool, please `fork` the repository and submit a pull request. Below are the current contributors.
+
 [//]: contributor-faces
 <a href="https://github.com/w3shivers"><img src="https://avatars.githubusercontent.com/u/83607204?v=4" title="w3shivers" width="50" height="50"></a> <a href="https://github.com/Yolinda"><img src="https://avatars.githubusercontent.com/u/1070989?v=4" title="Yolinda" width="50" height="50"></a>
 
 [//]: contributor-faces
 
-<hr>
+<!-- Packages Used -->
+## Packages Used
+<a href="https://pypi.org/project/Pillow/" title="Pillow v9.5.0+">
+  <img src="https://img.shields.io/badge/Package-Pillow%20v9.5.0+-purple">
+</a>
+<a href="https://pypi.org/project/rich/" title="Rich 13.4.1+">
+  <img src="https://img.shields.io/badge/Package-Rich%20v13.4.1+-red">
+</a>
+<a href="https://pypi.org/project/webcolors/1.3/" title="WebColors 1.13+">
+  <img src="https://img.shields.io/badge/Package-WebColors%20v1.13+-blue">
+</a>
 
+<!-- License -->
 ## License
-This project is licenses under the <a href="https://github.com/w3shivers/ascii-next-gen/blob/master/LICENSE" target="_blank" title="MIT License">MIT License</a>
+This project is licensed under the <a href="https://github.com/w3shivers/text-based-game-creator/blob/main/LICENSE">MIT License</a>.
+
+<!-- Contact -->
+## Contact
+If you have any questions or suggestions, please <a href="https://github.com/w3shivers/ascii-next-gen/issues" title="Open an issue on this repo">open an issue</a> on the repository.
 
 <hr>
 
-<div align="center">
-    <sub>
-        This readme file was created with ❤︎ by <a href="https://github.com/Yolinda">Yolinda</a>
-    </sub>
-</div>
+This readme.md was created with ❤︎ by <a href="https://github.com/Yolinda" title="Yolinda">Yolinda</a>
