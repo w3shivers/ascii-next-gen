@@ -19,31 +19,33 @@
   <img src="https://img.shields.io/badge/License-MIT-purple">
 </div>
 
-<hr>
+<br/>
 
 <!-- Table of Contents -->
 <div align="center">
   <a href="#project-overview" title="Project Overview">Project Overview</a> •
   <a href="#features" title="Features">Features</a> •
+  <a href="#get-started" title="Get Started">Get Started</a> •
+  <a href="#options" title="Options">Options</a> •
   <a href="#contributors" title="Contributors">Contributors</a> •
   <a href="#packages-used" title="Packages Used">Packages Used</a> •
-  <a href="#get-started" title="Get Started">Get Started</a> •
   <a href="#license" title="License">License</a>
 </div>
 
 <hr>
 
 <!-- Project Overview -->
-## Project Overview
+# Project Overview
 A command-line tool that can be used to convert images into **ASCII Art**. Loaded with options to customize the way in which the image is converted to ASCII Art.
 
 <!-- Features -->
-## Features
+# Features
 - [ ] Convert image(s) to ASCII art.
+- [ ] Option: Generate ASCII art in color or CLI text color.
 
 <!-- Get started -->
-## Get Started
-To get started ``close this repository`` to your local machine. Then, install the required dependencies using `pip`.
+# Get Started
+To get started ``clone this repository`` to your local machine. Then, install the required dependencies using `pip`.
 
 ```
 pip install -r requirements.txt
@@ -51,8 +53,21 @@ pip install -r requirements.txt
 
 Once all dependencies are installed, you can start converting images to ASCII art.
 
+<!-- Options -->
+# Options
+Below are the options that is offered when converting images to ASCII art.
+
+## To color or not to color
+Decide if your image should be generated to ASCII in color or not.
+
+```
+color: bool ( Default is True )
+    - True = ASCII Art will output in color.
+    - False = ASCII Art will output characters in CLI standard
+```
+
 <!-- Contributors -->
-## Contributors
+# Contributors
 If you would like to contribute to the development of this tool, please `fork` the repository and submit a pull request. Below are the current contributors.
 
 [//]: contributor-faces
@@ -61,7 +76,7 @@ If you would like to contribute to the development of this tool, please `fork` t
 [//]: contributor-faces
 
 <!-- Packages Used -->
-## Packages Used
+# Packages Used
 <a href="https://pypi.org/project/Pillow/" title="Pillow v9.5.0+">
   <img src="https://img.shields.io/badge/Package-Pillow%20v9.5.0+-purple">
 </a>
@@ -73,11 +88,11 @@ If you would like to contribute to the development of this tool, please `fork` t
 </a>
 
 <!-- License -->
-## License
+# License
 This project is licensed under the <a href="https://github.com/w3shivers/text-based-game-creator/blob/main/LICENSE">MIT License</a>.
 
 <!-- Contact -->
-## Contact
+# Contact
 If you have any questions or suggestions, please <a href="https://github.com/w3shivers/ascii-next-gen/issues" title="Open an issue on this repo">open an issue</a> on the repository.
 
 <hr>
