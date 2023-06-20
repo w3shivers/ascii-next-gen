@@ -35,7 +35,7 @@
 
 <!-- Project Overview -->
 ## Project Overview
-A command-line tool that can be used to convert images into **ASCII Art**. Loaded with various options.
+A command-line tool that can be used to convert images into **ASCII Art**. Loaded with options to customize the way in which the image is converted to ASCII Art.
 
 <!-- Features -->
 ## Features
@@ -82,4 +82,8 @@ If you have any questions or suggestions, please <a href="https://github.com/w3s
 
 <hr>
 
-This readme.md was created with ❤︎ by <a href="https://github.com/Yolinda" title="Yolinda">Yolinda</a>
+<div align="center">
+  <sub>
+    This readme.md was created with ❤︎ by <a href="https://github.com/Yolinda" title="Yolinda">Yolinda</a>
+  </sub>
+</div>

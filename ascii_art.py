@@ -6,17 +6,21 @@ from library.enums import ResizeType, ColumnLineRatio
 from math import floor
 
 class AsciiArt():
-    """ The AsciiArt object is only for generating
-    images into ASCII art. The object does offer
-    the following customizable options:
-     """
+    """ 
+    The AsciiArt object generates images into ASCII art, offering
+    several customization options.
+    """
+    
     __ascii_characters: str = "`^\",:;Il!i~+_-?][}{1)(|\\/tfjrxnuvczXYUJCLQ0OZmwqpdbkhao*#MW&8%B@$"
     __column_to_line_ratio = ColumnLineRatio.half.value
+    
     color: bool = True
-    """ color: bool (Default True)
-     - True = ASCII art will output with color.
-     - False = ASCII art will only output characters 
-       in CLI standard text color. """
+    """
+    color: bool ( Default is True )
+    - True = ASCII Art will output in color.
+    - False = ASCII Art will output characters in CLI standard
+    """
+
     single_character: str|None = None
     resize_type: str = ResizeType.percentage_size.value
     respect_aspect_ratio: bool = True
