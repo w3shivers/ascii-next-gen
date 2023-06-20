@@ -1,25 +1,23 @@
 <!-- File Header -->
-<div>
+<h1 align="center">
+  ASCII NextGen
+</h1>
 
-  <div style="font-size:xxx-large; text-align:center;">
-    ASCII NextGen
-  </div>
-
-  <div style="font-size:small; text-align:center; font-style:italic;">
+<div align="center">
+  <sub>
     Brought to you with ❤︎ by <a href="https://github.com/w3shivers" title="w3shivers">w3shivers</a> and <a href="#contributors" title="Contributors">Contributors</a>
-  </div>
-
+  </sub>
 </div>
 
 <!-- Project Badges -->
-<div style="text-align:center; margin-top:10px;">
+<div align="center">
   <img src="https://img.shields.io/badge/Version-0.9.0-red">
   <img src="https://img.shields.io/badge/Stability-Experimental-blue">
   <img src="https://img.shields.io/badge/Language-Python%20v3.11+-yellow">
   <img src="https://img.shields.io/badge/License-MIT-purple">
 </div>
 
-<hr style="margin:15px 0;">
+<hr>
 
 <!-- Table of Contents -->
 <div style="text-align:center; font-size:1.2em;">
