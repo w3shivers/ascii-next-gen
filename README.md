@@ -9,6 +9,8 @@
   </sub>
 </div>
 
+<br/>
+
 <!-- Project Badges -->
 <div align="center">
   <img src="https://img.shields.io/badge/Version-0.9.0-red">
@@ -20,7 +22,7 @@
 <hr>
 
 <!-- Table of Contents -->
-<div style="text-align:center; font-size:1.2em;">
+<div align="center">
   <a href="#project-overview" title="Project Overview">Project Overview</a> •
   <a href="#features" title="Features">Features</a> •
   <a href="#contributors" title="Contributors">Contributors</a> •
@@ -29,7 +31,7 @@
   <a href="#license" title="License">License</a>
 </div>
 
-<hr style="margin:15px 0;">
+<hr>
 
 <!-- Project Overview -->
 ## Project Overview
