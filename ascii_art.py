@@ -58,14 +58,38 @@ class AsciiArt():
         width = image_width
         height = image_height / 2
         terminal_size = get_terminal_size()
-        image_ratio = image_height / image_width
-        terminal_ratio = ( terminal_size.lines * self.__column_to_line_ratio ) / terminal_size.columns
-        if terminal_ratio < image_ratio: # adapt by height
-            height = terminal_size.lines
-            width = ( height / image_ratio ) * self.__column_to_line_ratio
-        else: # adapt by width
-            width = terminal_size.columns
-            height = ( width * image_ratio ) / self.__column_to_line_ratio
+        terminal_lines = terminal_size.lines
+        terminal_columns = terminal_size.columns
+        # Adjust terminal to percentage size.
+        if self.column_size:
+            terminal_columns = terminal_columns * ( self.column_size / 100 )
+        if self.line_size:
+            terminal_lines = terminal_lines * ( self.line_size / 100 )
+        # If aspect ratio needs to be adhered too.
+        if self.respect_aspect_ratio: 
+            # Rudi still to finalize this.
+            image_ratio = image_height / image_width
+            terminal_ratio = ( terminal_lines * self.__column_to_line_ratio ) / terminal_columns
+            if terminal_ratio < image_ratio: # adapt by height
+                height = terminal_lines
+                width = ( height / image_ratio ) * self.__column_to_line_ratio
+            else: # adapt by width
+                width = terminal_columns
+                height = ( width * image_ratio ) / self.__column_to_line_ratio
+            return (int(width), int(height))
+        # If aspect ratio does not matter.
+        width = terminal_columns
+        height = terminal_lines
+        # Adjust width if needed
+        if self.max_column_size and width > self.max_column_size:
+            width = self.max_column_size
+        elif self.min_column_size and width < self.min_column_size:
+            width = self.min_column_size
+        # Adjust height if needed
+        if self.max_line_size and height > self.max_line_size:
+            height = self.max_line_size
+        elif self.min_line_size and height < self.min_line_size:
+            height = self.min_line_size
         return (int(width), int(height))
 
     def __convert_to_ascii_art(self, image: Image) -> list:
