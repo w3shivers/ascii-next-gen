@@ -49,7 +49,7 @@ To get started ``close this repository`` to your local machine. Then, install th
 pip install -r requirements.txt
 ```
 
-Once the dependencies are installed, you can start developing the game creator by editing the files in the src directory.
+Once all dependencies are installed, you can start converting images to ASCII art.
 
 <!-- Contributors -->
 ## Contributors
