@@ -25,7 +25,8 @@ class AsciiArt():
     max_line_size: int|None = None
     max_column_size: int|None = None
     min_line_size: int|None = None
-    min_column_size: int|None = None
+    min_column_size: int|None = None 
+    __temp_count = 0
 
     def create(self, image_file: str) -> str:
         width = 0
@@ -105,20 +106,18 @@ class AsciiArt():
         previous_color = ''
         ascii_art = []
         (width, height) = image.size
+        hex_color = None
+        count = 0
         for y in range(0, height - 1):
             line = ''
             for x in range(0, width - 1):
-                pixel = image.getpixel((x, y))
-                # If user doesn't want color. Then we continue after adding char to line
-                if not self.color:
-                     line += self.__convert_pixel_to_character(pixel=pixel)
-                     continue
-                # If user wants color, then...
-                character = self.__convert_pixel_to_character(pixel=pixel)
-                hex_color = rgb_to_hex(pixel)
-                if not line:
+                count += 1
+                character, pixel = self.__convert_pixel_to_character(image=image, x=x, y=y)
+                if self.color: # if user wants color.
+                    hex_color = rgb_to_hex(pixel)
+                if hex_color and not line:
                     line += f'[{hex_color}]{character}'
-                elif previous_color != hex_color:
+                elif hex_color and previous_color != hex_color:
                     line += f'[/][{hex_color}]{character}'
                 else:
                     line += character
@@ -127,21 +126,39 @@ class AsciiArt():
                 ascii_art.append(line)
                 continue
             ascii_art.append(line + '[/]')
+        print('total: ', count, '\nerrors:', self.__temp_count)
         return ascii_art
 
-    def __convert_pixel_to_character(self, pixel: tuple) -> str:
-        if self.single_character:
-            character = str(self.single_character)[0]
-        else:
-            (r, g, b) = pixel
+    def __convert_pixel_to_character(self, image: Image, x: int, y:int) -> tuple:
+        pixel = image.getpixel((x, y))
+        character = ' '
+        (r, g, b, a) = self.__convert_pixel_to_rgba_color_profile(pixel=pixel)
+        if a == 0: # If completely transparent 
+            character = ' '
+        else: 
             pixel_brightness = r + g + b
             max_brightness = (255 * 3)
             brightness_weight = len(self.__ascii_characters) / max_brightness
             index = int(pixel_brightness * brightness_weight) - 1
+            if self.single_character:
+                character = str(self.single_character)[0]
             character = self.__ascii_characters[index]
         if self.color and character == '\\':
             character = '\\\\' # Have to double escape the backslash to ensure it doesn't escape any color tags.
-        return character
+        return (character, (r, g, b))
+    
+    def __convert_pixel_to_rgba_color_profile(self, pixel: tuple) -> tuple:
+        try: # Try RGB profile first
+            (r, g, b) = pixel
+            a = 1
+        except ValueError: # Try RGBA profile
+            (r, g, b, a) = pixel
+            a = (a / 255)
+            r = int(r * a)
+            g = int(g * a)
+            b = int(b * a)
+        return (r, g, b, a) # Always return RGBA
+
     def print_image(self, ascii_art: str) -> None:
         # If not color use normal print
         if not self.color:
