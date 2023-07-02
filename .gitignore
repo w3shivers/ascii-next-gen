@@ -9,6 +9,9 @@ __pycache__/
 # Unit tests
 unit_test*
 
+# Index page
+index*
+
 # C extensions
 *.so
 

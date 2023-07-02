@@ -1,41 +1,56 @@
-## Import packages
+### IMPORTS ###
 import argparse
 from ascii_art import AsciiArt
 from library.enums import ResizeType
 from os import get_terminal_size
 import os.path
 
-## TEMPORARY DEFAULTS
+### Configuration / Default Values ###
 size = get_terminal_size()
 ascii = AsciiArt()
 ascii.color = True
 
-## Create a new CLI object
-parser = argparse.ArgumentParser(description="Display description here")
+### Create a new CLI Object ###
+parser = argparse.ArgumentParser(
 
-## Add new argument(s)
-parser.add_argument("FileName")
+    ## Program name
+    prog = "ASCII Image Generator",
 
-## Generate parser
+    ## Add program description
+    description = "Convert any image into an ASCII image",
+
+    ## Footer
+    epilog = "v0.0.1 Copyright Rudi and Yolinda",   
+
+)
+
+### Create argument groups ###
+required = parser.add_argument_group( "Required Argument(s)")
+
+### Add arguments ###
+required.add_argument("FileName")
+
+### Parse Arguments ###
 args = parser.parse_args()
 
-## Execute if the Filename is not empty
-if ( args.FileName is not "" ):
+### Execute if the Filename is not empty ###
+if ( args.FileName != "" ):
     
-    #file_exists = exists(path_to_file)
+    ## Get the identified file ##
+    does_file_exist = os.path.isfile( args.FileName )
 
-    ## Confirm if the directory & image exists
-    does_file_exist = os.path.isfile(args.FileName)
-
+    ## Trigger action if file exists ##
     if ( does_file_exist == True ):
-        
-        # Create a new file
-        art = ascii.create(image_file=args.FileName)
 
-        # Create and print the image
-        # test_images/cat.jpg
-        ascii.print_image(art)
+        ## Create a new file
+        art = ascii.create(
+            image_file = args.FileName
+        )
+    
+    ## Create and print the image
+    # test_images/cat.jpg
+    ascii.print_image( art )
 
-    ## If the directory / image does not exist print error message
-    else:
-        print(f"The {args.FileName} does not exist. Please try again. ")
+## Print error if file does not exist
+else:
+    print(f"The {args.FileName} does not exist. Please try again.")
