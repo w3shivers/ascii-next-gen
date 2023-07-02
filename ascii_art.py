@@ -8,8 +8,8 @@ from math import floor
 class AsciiArt():
     """ The AsciiArt object is only for generating
     images into ASCII art. The object does offer
-    the following customizable options:
-     """
+    the following customizable options: 
+    """
     __ascii_characters: str = "`^\",:;Il!i~+_-?][}{1)(|\\/tfjrxnuvczXYUJCLQ0OZmwqpdbkhao*#MW&8%B@$"
     __column_to_line_ratio = ColumnLineRatio.half.value
     color: bool = True
@@ -67,14 +67,23 @@ class AsciiArt():
             terminal_lines = terminal_lines * ( self.line_size / 100 )
         # If aspect ratio needs to be adhered too.
         if self.respect_aspect_ratio: 
-            # Rudi still to finalize this.
+            """ TODO: Need to improve on this. There has to be a simpler way tp calculate
+            this and also have it adhere to the min and max values better. """
             image_ratio = image_height / image_width
             terminal_ratio = ( terminal_lines * self.__column_to_line_ratio ) / terminal_columns
+            width = terminal_columns
+            if self.min_column_size and self.min_column_size > width:
+                width = self.min_column_size
+            elif self.max_column_size and self.max_column_size < width:
+                width = self.max_column_size
+            height = terminal_lines
+            if self.min_line_size and self.min_line_size > height:
+                height = self.min_line_size
+            elif self.max_line_size and self.max_line_size < height:
+                height = self.max_line_size
             if terminal_ratio < image_ratio: # adapt by height
-                height = terminal_lines
                 width = ( height / image_ratio ) * self.__column_to_line_ratio
             else: # adapt by width
-                width = terminal_columns
                 height = ( width * image_ratio ) / self.__column_to_line_ratio
             return (int(width), int(height))
         # If aspect ratio does not matter.
