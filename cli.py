@@ -1,69 +1,120 @@
-### Imports 
+"""
+[1] Imports
+[2] Define defaults
+[3] Initiation of CLI
+[4] Positional Arguments
+[5] Optional Arguments
+[6] Run / generate CLI
+[7] Validation
+"""
+
+""" [1] Imports """
 import argparse
 from ascii_art import AsciiArt
 from library.enums import ResizeType
 from pathlib import Path
 
-### Default variable
+""" [2] Define defaults """
 default_msg = True
 ascii = AsciiArt()
+type = {
+    "image": "Convert an image to an ASCII art image",
+    "text": "Convert your text to ASCII text [coming soon]"
+}
 
-### Initiate a new CLI
+""" [3] Initiation of CLI """
 parser = argparse.ArgumentParser(
     prog = "Program name",
     description = "Description here", 
-    epilog = "Footer here"
+    epilog = "Footer here",
+    formatter_class=argparse.ArgumentDefaultsHelpFormatter,
 )
 
-""" Positional Arguments """
-
-### ASCII Type [image, animation, text]
+""" [4] Positional Arguments """
+### Define the function (image, text, animation) to execute
 parser.add_argument(
     "type",
-    help = "Please specify an ASCII Type. Choice are [image, animation, text]",
+    type = str,
+    help = "What function [{type}] do you want to execute.",
+    default = "default",
+    action = "store"
 )
 
-### Define image path
+### Define the image path
 parser.add_argument(
-    "image_path",
-    help = "Define the image path.",
+    "path",
+    type = str,
+    help = "Specify the path of the image.",
+    action = "store"
 )
 
-""" Optional Arguments """
+""" [5] Optional Arguments """
+## Generate image in black & white
 parser.add_argument(
-    '-c', '--color',
-    help = "Generate the image in color or black and white. [True, False]. Default = True",
-    type = bool,
-    default = True,
-    choices = ['True', 'False'],
+    "-c", "--color",
+    help = "By default image is generated in color. Turn off color option, and generate image in black & white.",
+    action = "store_false"
 )
 
-### Get arguments parsed by user 
+## Keep image aspect ratio when generating
+parser.add_argument(
+    "-as", "--aspect",
+    help = "By default the aspect ratio is not respected. When argument set the aspect ratio of the original file is respected.",
+    action = "store_false"
+)
+
+## Set line size (or width of the image)
+parser.add_argument(
+    "-w", "--width",
+    help = "Specify the width of the image that should be generated",
+    action = "store",
+    type = int,
+)
+
+## Set column size (or height) of the image
+parser.add_argument(
+    "-he", "--height",
+    help = "Set the height of the image that will be generated",
+    action = "store", 
+    type = int,
+)
+
+""" [6] Run / generate CLI """
 args = parser.parse_args()
 
-### Type set to IMAGE
+""" [7] Validations """
+### Type = IMAGE / image
 if ( args.type.lower() == "image"):
-
-    ### Define the image path
-    if ( args.image_path != ""):
-        img_path = Path(args.image_path)
-        
-        ### Image path exists
-        if ( img_path.is_file() == True):
-            print(f"Image path exists")
-            print(f"{args.color}")
-            
-            ### Options
-            ascii.color = args.color
-
-            ascii.print_image(
-                ascii.create(image_file=img_path)
-            )
     
-    ### Image path empty
-    else:
-        print(f"image path empty")
+    print("arguments:")
+    print(args)
 
-### No type has been selected by the user
+    ## Print introduction of the options in question
+    type_introduction = type.get(args.type, "")
+    print(type_introduction) # Print the introduction message
+
+    ## Validate if the path name exists
+    path = Path(args.path) # Get path name entered by the user
+
+    ## Source file exists
+    if ( path.is_file() == True):
+        print(f"Source file exists")
+
+        # Image default override
+        ascii.color = args.color
+        ascii.respect_aspect_ratio = args.aspect
+        ascii.line_size = args.width
+        ascii.column_size = args.height
+
+        # Generate ASCII image
+        ascii.print_image(
+            ascii.create(image_file = path)
+        )
+
+    ## Source file does not exist
+    else:
+        print(f"Source file does not exist. Please try again.")
+
 else:
-    print(f"Oh No... Please specify a function or type you want to run. Options are: image")
+    ## Type does not exist
+    print( f"This type does not exist. Please try [image, text]")
