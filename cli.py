@@ -1,11 +1,7 @@
-"""
-[1] Imports
-[2] Define defaults
-[3] Initiation of CLI
-[4] Positional Arguments
-[5] Optional Arguments
-[6] Run / generate CLI
-[7] Validation
+""" AsciiArt NextGen CLI
+Use this CLI to interact with the AsciiArt() module, which is used to transform your static images into 
+ASCII images.
+
 """
 
 """ [1] Imports """
@@ -24,10 +20,11 @@ type = {
 
 """ [3] Initiation of CLI """
 parser = argparse.ArgumentParser(
-    prog = "Program name",
+    prog = "AsciiNext Gen CLI",
     description = "Description here", 
     epilog = "Footer here",
     formatter_class=argparse.ArgumentDefaultsHelpFormatter,
+    add_help = True,
 )
 
 """ [4] Positional Arguments """
@@ -49,22 +46,27 @@ parser.add_argument(
 )
 
 """ [5] Optional Arguments """
+image_parser = parser.add_argument_group(
+    title = "AsciiArt Image Options",
+    description = "Describe how the image options work"
+)
+
 ## Generate image in black & white
-parser.add_argument(
+image_parser.add_argument(
     "-c", "--color",
     help = "By default image is generated in color. Turn off color option, and generate image in black & white.",
     action = "store_false"
 )
 
 ## Keep image aspect ratio when generating
-parser.add_argument(
+image_parser.add_argument(
     "-as", "--aspect",
     help = "By default the aspect ratio is not respected. When argument set the aspect ratio of the original file is respected.",
     action = "store_false"
 )
 
 ## Set line size (or width of the image)
-parser.add_argument(
+image_parser.add_argument(
     "-w", "--width",
     help = "Specify the width of the image that should be generated",
     action = "store",
@@ -72,7 +74,7 @@ parser.add_argument(
 )
 
 ## Set column size (or height) of the image
-parser.add_argument(
+image_parser.add_argument(
     "-he", "--height",
     help = "Set the height of the image that will be generated",
     action = "store", 

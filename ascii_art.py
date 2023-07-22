@@ -1,3 +1,26 @@
+# Author: Rudi Esterhuysen <rudi.esterhuyzen@gmail.com>
+
+""" AsciiArt NextGen
+
+This module generates static images into ASCII images and offers the following customization options:
+* Generate image in full color or the default CLI output color.
+* Define the size of the ASCII image that should be generated.
+* Generate image in a single character or several characters.
+
+The following is a simple usage of the module::
+
+    if __name__ == '__main__':
+        ascii = AsciiArt()
+        ascii.print_image(
+            ascii.create(image_file='test_images/cat.jpg')
+        )
+
+This module holds the following class(es):
+    
+    - AsciiArt() -- Describe the class here
+
+"""
+
 from PIL import Image
 from webcolors import rgb_to_hex
 from rich import print as print_ascii
@@ -6,20 +29,43 @@ from library.enums import ResizeType, ColumnLineRatio
 from math import floor
 
 class AsciiArt():
-    """ The AsciiArt object is only for generating
-    images into ASCII art. The object does offer
-    the following customizable options: 
+    """ The AsciiArt object generates images into ASCII
+    art. The object offers several customization options.
+    * color
     """
     __ascii_characters: str = "`^\",:;Il!i~+_-?][}{1)(|\\/tfjrxnuvczXYUJCLQ0OZmwqpdbkhao*#MW&8%B@$"
     __column_to_line_ratio = ColumnLineRatio.half.value
     color: bool = True
-    """ color: bool (Default True)
-     - True = ASCII art will output with color.
-     - False = ASCII art will only output characters 
-       in CLI standard text color. """
+    """ color: bool (Default: True)
+
+    Generate the ASCII image in full color or the standard output color. The following options are available:
+        - True -- AsciiArt will be generated in full color.
+        - False -- AsciiArt will be generated in the default output color of your CLI.
+    """
+
     single_character: str|None = None
+    """ single_character: str|None = None
+
+    Defined characters will be used to generate the AsciiArt image. Single or multiple characters can be defined. The following default characters are set::
+        `^\",:;Il!i~+_-?][}{1)(|\\/tfjrxnuvczXYUJCLQ0OZmwqpdbkhao*#MW&8%B@$
+    """
+
     resize_type: str = ResizeType.percentage_size.value
+    """ resize_type: str = ResizeType.percentage_size.value
+
+    Define the parameters that should be used to resize the AsciiArt image. Options are:
+        - Percentage -- Resize the AsciiArt image using a percentage.
+        - Size -- Resize the AsciiArt image by defining a width and height.
+    """
+
     respect_aspect_ratio: bool = True
+    """ respect_aspect_ratio: bool = True
+
+    Generate the AsciiArt image to a specific size or adhering to the source files aspect ratio. The following options are available::
+        - True -- If set to true the image is generated in a specific size.
+        - False -- If set false the image is generated respecting the aspect ratio of the original image.
+    """
+
     line_size: int|None = 100
     column_size: int|None = 100
     max_line_size: int|None = None
@@ -29,6 +75,11 @@ class AsciiArt():
     __temp_count = 0
 
     def create(self, image_file: str) -> str:
+        """ Create the AsciiArt image
+        
+        Run the method to generate the identified source file (or image) into an AsciiArt image. 
+        """
+    
         width = 0
         height = 0
         image = Image.open(image_file)
