@@ -34,7 +34,7 @@
 
 <hr>
 
-<!-- Project Overview -->
+<!-- Project Overview start here -->
 ## Project Overview
 A command-line tool that can be used to convert images into **ASCII Art**. Loaded with options to customize the way in which the image is converted to ASCII Art.
 
