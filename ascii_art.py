@@ -78,6 +78,7 @@ class AsciiArt():
         """ Create the AsciiArt image
         
         Run the method to generate the identified source file (or image) into an AsciiArt image. 
+
         """
     
         width = 0
