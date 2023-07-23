@@ -9,6 +9,8 @@ import argparse
 from ascii_art import AsciiArt
 from library.enums import ResizeType
 from pathlib import Path
+from rich import print
+
 
 """ [2] Define defaults
 """
@@ -22,6 +24,7 @@ parser = argparse.ArgumentParser(
     epilog = "© AsciiArt NextGen CLI. 2023. YVDL & RE",
     formatter_class=argparse.ArgumentDefaultsHelpFormatter,
     add_help = True,
+    allow_abbrev = True,
 )
 
 """ [4] Arguments 
@@ -59,6 +62,14 @@ run_image.add_argument(
     help = "Ascii image generated in full color by default. Turn off and generate Ascii image using CLI output color."
 )
 
+### Optional Argument: Size type
+run_image.add_argument(
+    "-st", "--size_type",
+    action = "store",
+    default = "Percentage",
+    choices = ["Percentage","Fixed"],
+    help = "Generate the ASCII image based on a percentage size or an exact size."    
+)
 
 """ [5] Get arguments
 """
@@ -69,7 +80,13 @@ args = parser.parse_args()
 
 ## Type = Default
 if ( args.type.lower() == "show_help" ):
-    print(f"Show default CLI message with all of the options")
+    default_msg = """Welcome to the [bold]AsciiArt NextGen CLI[/bold]
+
+This CLI allows you to interact with the AsciiArt NextGen module.
+
+Enter -h to get started
+"""
+    print(default_msg)
 
 ## Type = Image
 elif ( args.type.lower() == "image"):
@@ -80,6 +97,14 @@ elif ( args.type.lower() == "image"):
         
         ### Overwrite the default image options using the CLI parameters specified
         ascii.color = args.color
+        
+        # Determine which sizing option should be used
+        if ( args.size_type == "Percentage"):
+            ascii.resize_type = ResizeType.percentage_size.value
+        elif ( args.size_type == "Fixed"):
+            ascii.resize_type = ResizeType.exact_size.value
+
+        
 
         ### Generate Ascii Image
         ascii.print_image(
