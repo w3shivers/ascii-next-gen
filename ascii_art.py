@@ -115,3 +115,5 @@ class AsciiArt():
             print(ascii_art)
         else:
             print_ascii(ascii_art)
+
+# Test
